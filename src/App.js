@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import  React, { useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from "./components/Header";
+import Input from "./components/Input";
+import TasksGrid from './components/TasksGrid';
+
+const App = () => {
+
+	const [color, setColor] = useState("#000000");
+  const [name, setName] = useState("")
+
+
+
+	return (
+		<>
+			<Header title="Week Planner" />
+			<Input color={color} name={name} setColor={setColor} setName={setName} />
+			<TasksGrid color={color} name={name} />
+		</>
+	)
+
 }
 
 export default App;

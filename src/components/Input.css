@@ -1,0 +1,52 @@
+.input-container {
+  background: var(--dark-second-color);
+  padding: 15px 0;
+}
+
+.input-container * {
+  border-radius: 5px;
+  border: none;
+}
+
+button,
+.edit-btn {
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.input-text {
+  padding: 5px;
+  width: 250px;
+  margin: 0px 10px;
+}
+
+.color-input {
+  background-color: none;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: 4px;
+  cursor: pointer;
+}
+
+.add-btn {
+  background: var(--main-color);
+  padding: 6px 15px;
+}
+
+.add-btn:hover {
+  background: var(--active-color);
+}
+
+.colors-container {
+  display: flex;
+}
+
+.colors-container > div {
+  width: 20px;
+  height: 20px;
+  margin: 10px 5px 0 0;
+  cursor: pointer;
+}

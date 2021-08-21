@@ -1,0 +1,44 @@
+.tasks-container {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tasks-container > div {
+  margin: 5px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: flex;
+}
+
+.tasks-container p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tasks-container > div > div {
+  display: flex;
+  position: relative;
+  left: 5px;
+}
+
+.tasks-container img {
+  padding: 0px 10px;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  top: 1px;
+}
+
+.delete-btn {
+  background-color: red;
+  width: 17px;
+  height: 17px;
+  border: none;
+  border-radius: 50%;
+}
+
+.delete-btn:hover {
+  background-color: rgb(219, 2, 2);
+}
