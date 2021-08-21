@@ -16,7 +16,7 @@ const Input = ({color, setColor, name, setName, setTasks}) => {
       if(Object.values(tasks).filter(task => task.name === name).length !== 0) return tasks;
 
       setName('');
-      return  [{name, color}, ...tasks]
+      return  [{name, color}, ...tasks];
     });
   };
 
