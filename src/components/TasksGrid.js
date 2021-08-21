@@ -10,7 +10,7 @@ const TasksGrid = ({color, name, tasks, setTasks}) => {
     <div className="container tasks-container">
       {name && <NewTask color={color} name={name} /> } 
 
-      { tasks.map(task => <Task key={task.name} name={task.name} color={task.color} />) }
+      { tasks.map(task => <Task key={task.name} name={task.name} color={task.color} setTasks={setTasks} />) }
       
     </div>
   )
