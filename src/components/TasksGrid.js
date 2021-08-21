@@ -4,15 +4,14 @@ import Task from "./Task";
 import './TasksGrid.css';
 
 
-const TasksGrid = ({color, name}) => {
-
+const TasksGrid = ({color, name, tasks, setTasks}) => {
 
   return (
     <div className="container tasks-container">
       {name && <NewTask color={color} name={name} /> } 
-      <Task name="hello world" color="#000000" />
-      <Task name="hello world" color="#000000" />
-      <Task name="hello world" color="#000000" />
+
+      { tasks.map(task => <Task key={task.name} name={task.name} color={task.color} />) }
+      
     </div>
   )
 }
