@@ -1,7 +1,7 @@
 import React from 'react'
 import imgEdit from '../assets/edit.png';
 
-const Task = ({color, name, setName, setColor, setTasks}) => {
+const Task = ({color, name, setName, setColor, setTasks, selectedTask, setSelectedTask}) => {
 
   const removeTask = e => {
 
@@ -18,9 +18,19 @@ const Task = ({color, name, setName, setColor, setTasks}) => {
     setColor(taskColor);
   }
 
+  const selecteTask = e => {
+
+    const taskName = e.target.dataset.name;
+    setSelectedTask(taskName);
+  }
+
+  const styleTask = {background: color};
+  if(selectedTask === name) styleTask.border = "2px solid white";
+  
   return (
-    <div style={{background: color}}>
-      <p>{name}</p>
+
+    <div style={styleTask} >
+      <p data-name={name} onClick={selecteTask}>{name}</p>
       <div>
         <img className="edit-btn" data-name={name} data-color={color} onClick={editTask} src={imgEdit} alt="" />
         <button className="delete-btn" data-name={name} onClick={removeTask} >x</button>

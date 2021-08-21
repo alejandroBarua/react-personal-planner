@@ -11,12 +11,20 @@ const App = () => {
 	const [color, setColor] = useState("#000000");
   const [name, setName] = useState("");
 	const [tasks, setTasks] = useState(tasksList);
+	const [selectedTask, setSelectedTask] = useState("sleep");
 
 	return (
 		<>
 			<Header title="Week Planner" />
-			<Input color={color} name={name} setColor={setColor} setName={setName} setTasks={setTasks} />
-			<TasksGrid color={color} name={name} tasks={tasks} setColor={setColor} setName={setName} setTasks={setTasks} />
+
+			<Input color={color} setColor={setColor} 
+						name={name}  setName={setName} 
+						setTasks={setTasks} />
+
+			<TasksGrid color={color} setColor={setColor} 
+								name={name} setName={setName} 
+								tasks={tasks} setTasks={setTasks}
+								selectedTask={selectedTask} setSelectedTask={setSelectedTask} />
 		</>
 	)
 
