@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Days = () => {
+const Days = ({selectedBlock}) => {
   
 	const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
@@ -8,7 +8,10 @@ const Days = () => {
 		<div className="days-container">
 			<ul>
 				{
-					days.map(day => <li key={day}>{day}</li>)
+					days.map(day => { 
+						const styleDay = day === selectedBlock.day ? {color: "var(--active-color)"} : {};
+						return <li key={day} style={styleDay} >{day}</li>
+					})
 				}
 			</ul>
 		</div>

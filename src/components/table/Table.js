@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './Table.css';
 import Hours from './Hours';
@@ -6,11 +6,14 @@ import Days from './Days';
 import Blocks from "./Blocks";
 
 const Table = () => {
+
+	const [selectedBlock, setSelectedBlock] = useState("");
+
 	return (
 		<div className="container table">
-			<Hours />
-			<Days />
-			<Blocks />
+			<Hours selectedBlock={selectedBlock} />
+			<Days selectedBlock={selectedBlock}  />
+			<Blocks setSelectedBlock={setSelectedBlock} />
 		</div>
 	)
 }
