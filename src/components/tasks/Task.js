@@ -1,5 +1,5 @@
 import React from 'react'
-import imgEdit from '../assets/edit.png';
+import imgEdit from './assets/edit.png';
 
 const Task = ({color, name, setName, setColor, setTasks, selectedTask, setSelectedTask}) => {
 

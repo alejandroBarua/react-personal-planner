@@ -1,9 +1,9 @@
 import  React, { useState } from 'react';
 import tasksList from "./helpers/tasksList";
 
-import Header from "./components/Header";
-import Input from "./components/Input";
-import TasksGrid from './components/TasksGrid';
+import Header from "./components/header/Header";
+import Input from "./components/input/Input";
+import TasksGrid from './components/tasks/TasksGrid';
 
 
 const App = () => {
