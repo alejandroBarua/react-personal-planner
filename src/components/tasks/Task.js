@@ -7,6 +7,7 @@ const Task = ({color, name, setName, setColor, setTasks, selectedTask, setSelect
 
     const taskName = e.target.dataset.name;
     setTasks(tasks => tasks.filter(el => el.name !== taskName));
+    setSelectedTask("");
     return taskName;
   }
 
@@ -19,14 +20,13 @@ const Task = ({color, name, setName, setColor, setTasks, selectedTask, setSelect
   }
 
   const selecteTask = e => {
+    
+    const nameTask = e.target.dataset.name;
+    const colorTask = e.target.dataset.color;
 
-    const task = {
-      name: e.target.dataset.name,
-      color: e.target.dataset.color
-    };
+    if(nameTask === selectedTask.name) return setSelectedTask("");
 
-    setSelectedTask(task);
-
+    setSelectedTask({name: nameTask, color: colorTask});
   }
   
   const styleTask = {background: color};

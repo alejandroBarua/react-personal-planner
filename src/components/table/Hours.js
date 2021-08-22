@@ -2,7 +2,7 @@ import React from 'react'
 
 import initializeArrayTo from "./helpers/inizializeArray";
 
-const Hours = ({selectedBlock}) => {
+const Hours = ({hoverBlock}) => {
 
 	const hoursArray = initializeArrayTo(24);
 
@@ -12,7 +12,7 @@ const Hours = ({selectedBlock}) => {
 			{
 				hoursArray.map(hour => {
 					
-					const styleHour = hour === selectedBlock.hour ? {color: "var(--active-color)"} : {};
+					const styleHour = hour === hoverBlock.hour ? {color: "var(--active-color)"} : {};
 					return <div key={hour}><p style={styleHour}>{hour}</p></div>
 				}) 
 			}

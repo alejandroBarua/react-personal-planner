@@ -20,14 +20,15 @@ const App = () => {
 
 			<Input color={color} setColor={setColor} 
 						name={name}  setName={setName} 
-						setTasks={setTasks} />
+						setTasks={setTasks}
+						setSelectedTask={setSelectedTask} />
 
 			<TasksGrid color={color} setColor={setColor} 
 								name={name} setName={setName} 
 								tasks={tasks} setTasks={setTasks}
 								selectedTask={selectedTask} setSelectedTask={setSelectedTask} />
 
-			<Table />
+			<Table selectedTask={selectedTask} />
 		</>
 	)
 

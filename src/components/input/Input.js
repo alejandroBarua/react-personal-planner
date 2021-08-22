@@ -3,7 +3,7 @@ import Colors from './Colors';
 
 import './Input.css';
 
-const Input = ({color, setColor, name, setName, setTasks}) => {
+const Input = ({color, setColor, name, setName, setTasks, setSelectedTask}) => {
 
 	const handleInputColor = e => setColor(e.target.value);
 	const handleInputName = e => setName(e.target.value);
@@ -18,6 +18,7 @@ const Input = ({color, setColor, name, setName, setTasks}) => {
       setName('');
       return  [{name, color}, ...tasks];
     });
+    setSelectedTask({name, color});
   };
 
 

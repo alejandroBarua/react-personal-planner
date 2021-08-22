@@ -1,7 +1,7 @@
 import React from 'react'
 import initializeArrayTo from './helpers/inizializeArray'
 
-const Blocks = ({setSelectedBlock}) => {
+const Blocks = ({setHoverBlock, selectedTask}) => {
 
 	const hoursArray = initializeArrayTo(24);
 	const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
@@ -11,10 +11,18 @@ const Blocks = ({setSelectedBlock}) => {
 		const position = e.target.dataset.position;
 		const day = position.slice(0,3);
 		const hour = Number(position.substring(3)) ;
-		setSelectedBlock({day, hour});
+		setHoverBlock({day, hour});
 	}
 
-	const handlerOut = () => setSelectedBlock("");
+	const handlerOut = () => setHoverBlock("");
+
+	const selecteBlock = e => {
+
+		const position = e.target.dataset.position;
+
+		console.log(position);
+		console.log(selectedTask);
+	}
 
 
 	return (
@@ -26,7 +34,9 @@ const Blocks = ({setSelectedBlock}) => {
 							hoursArray.map(hour => <div key={`${day}${hour}`} 
 																					data-position={`${day}${hour}`}
 																					onMouseOver={handlerPosicionBlock}
-																					onMouseOut={handlerOut}></div>)
+																					onMouseOut={handlerOut}
+																					onClick={selecteBlock}
+																		></div>)
 						}
 					</div>
 				})
