@@ -1,12 +1,12 @@
 .tasks-container {
-  margin-top: 40px;
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .tasks-container > div {
   margin: 5px;
-  padding: 12px 20px;
+  padding: 11px 18px;
   border-radius: 10px;
   display: flex;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NewTask = ({color, name}) => {
+const PreviewTask = ({color, name}) => {
 
 
   return (
@@ -10,4 +10,4 @@ const NewTask = ({color, name}) => {
   )
 }
 
-export default NewTask;
+export default PreviewTask;

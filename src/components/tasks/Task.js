@@ -20,17 +20,22 @@ const Task = ({color, name, setName, setColor, setTasks, selectedTask, setSelect
 
   const selecteTask = e => {
 
-    const taskName = e.target.dataset.name;
-    setSelectedTask(taskName);
-  }
+    const task = {
+      name: e.target.dataset.name,
+      color: e.target.dataset.color
+    };
 
+    setSelectedTask(task);
+
+  }
+  
   const styleTask = {background: color};
-  if(selectedTask === name) styleTask.border = "2px solid white";
+  if(selectedTask.name === name) styleTask.border = "2px solid white";
   
   return (
 
     <div style={styleTask} >
-      <p data-name={name} onClick={selecteTask}>{name}</p>
+      <p data-name={name} data-color={color} onClick={selecteTask}>{name}</p>
       <div>
         <img className="edit-btn" data-name={name} data-color={color} onClick={editTask} src={imgEdit} alt="" />
         <button className="delete-btn" data-name={name} onClick={removeTask} >x</button>

@@ -1,5 +1,5 @@
 import React from 'react'
-import NewTask from './NewTask';
+import PreviewTask from './PreviewTask';
 import Task from "./Task";
 import './TasksGrid.css';
 
@@ -8,7 +8,7 @@ const TasksGrid = ({color, setColor, name, setName, tasks, setTasks, selectedTas
 
   return (
     <div className="container tasks-container">
-      {name && <NewTask color={color} name={name} /> } 
+      {name && <PreviewTask color={color} name={name} /> } 
 
       { tasks.map(task => <Task key={task.name} name={task.name} setName={setName} 
                                                 color={task.color} setColor={setColor}  

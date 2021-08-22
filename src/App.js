@@ -11,7 +11,7 @@ const App = () => {
 	const [color, setColor] = useState("#000000");
   const [name, setName] = useState("");
 	const [tasks, setTasks] = useState(tasksList);
-	const [selectedTask, setSelectedTask] = useState("sleep");
+	const [selectedTask, setSelectedTask] = useState("");
 
 	return (
 		<>
