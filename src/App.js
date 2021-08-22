@@ -28,7 +28,8 @@ const App = () => {
 								tasks={tasks} setTasks={setTasks}
 								selectedTask={selectedTask} setSelectedTask={setSelectedTask} />
 
-			<Table selectedTask={selectedTask} />
+			<Table selectedTask={selectedTask} 
+						tasks={tasks} />
 		</>
 	)
 
