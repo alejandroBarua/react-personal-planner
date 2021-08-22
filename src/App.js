@@ -1,5 +1,5 @@
 import  React, { useState } from 'react';
-import tasksList from "./helpers/tasksList";
+import inizializeTasksList from "./helpers/inizializeTasksList";
 
 import Header from "./components/header/Header";
 import Input from "./components/input/Input";
@@ -9,10 +9,15 @@ import Table from "./components/table/Table";
 
 const App = () => {
 
+	const tasksList = inizializeTasksList();
+
 	const [color, setColor] = useState("#000000");
   const [name, setName] = useState("");
 	const [tasks, setTasks] = useState(tasksList);
 	const [selectedTask, setSelectedTask] = useState("");
+
+  console.log(tasks);
+
 
 	return (
 		<>

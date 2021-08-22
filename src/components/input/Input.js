@@ -1,6 +1,6 @@
-import React from 'react'
+import { v4 } from "uuid";
+import React from 'react';
 import Colors from './Colors';
-
 import './Input.css';
 
 const Input = ({color, setColor, name, setName, setTasks, setSelectedTask}) => {
@@ -16,7 +16,7 @@ const Input = ({color, setColor, name, setName, setTasks, setSelectedTask}) => {
       if(Object.values(tasks).filter(task => task.name === name).length !== 0) return tasks;
 
       setName('');
-      return  [{name, color}, ...tasks];
+      return  [{id: v4(), name, color}, ...tasks];
     });
     setSelectedTask({name, color});
   };

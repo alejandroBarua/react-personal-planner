@@ -19,22 +19,27 @@ const Blocks = ({setHoverBlock, selectedTask, tasks}) => {
 	const [selectedBlocks, setSelectedBlocks] = useState([]);
 
 	const selecteBlock = e => {
-		
-		const $block = e.target;
+
+		if(selectedTask === "") return;
+
 		const nameTask = selectedTask.name;
-
-		if(selectedTask === "" || $block.dataset.task === nameTask) {
-			$block.style.background = "var(--second-color)";
-			$block.removeAttribute("data-task");
-			return;
-		}
-
-		const position = $block.dataset.position;
-		const color = tasks.filter(task => task.name === nameTask)[0].color;
-		$block.style.background = color;
-		$block.setAttribute("data-task", nameTask);
+		const position = e.target.dataset.position;
 
 		setSelectedBlocks(data => [...data, {position, task: nameTask}]);
+	}
+
+	const findColorBlock = (day, hour) => {
+		
+		if(!selectedBlocks.length) return;
+		if(!tasks.length) return;
+
+		if(!selectedBlocks.filter(el => el.position === `${day}${hour}`)[0]) return;
+		const nameTask = selectedBlocks.filter(el => el.position === `${day}${hour}`)[0].task;
+		
+		if(!tasks.filter(task => task.name === nameTask)[0]) return;
+		const colorBlock = tasks.filter(task => task.name === nameTask)[0].color;
+
+		return colorBlock;
 	}
 
 
@@ -46,13 +51,16 @@ const Blocks = ({setHoverBlock, selectedTask, tasks}) => {
 						{
 							hoursArray.map(hour => {
 								
+								const colorBlock = findColorBlock(day, hour);
+
+								const styleBlock = colorBlock ? {background: colorBlock}: {};
+
 								return <div key={`${day}${hour}`} 
 														data-position={`${day}${hour}`}
 														onMouseOver={handlerPosicionBlock}
 														onMouseOut={handlerOut}
 														onClick={selecteBlock} 
-														
-											></div>
+														style={styleBlock}></div>
 						})}
 					</div>
 				})
