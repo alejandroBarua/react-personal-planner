@@ -4,6 +4,7 @@ import tasksList from "./helpers/tasksList";
 import Header from "./components/header/Header";
 import Input from "./components/input/Input";
 import TasksGrid from './components/tasks/TasksGrid';
+import Table from "./components/table/Table";
 
 
 const App = () => {
@@ -25,6 +26,8 @@ const App = () => {
 								name={name} setName={setName} 
 								tasks={tasks} setTasks={setTasks}
 								selectedTask={selectedTask} setSelectedTask={setSelectedTask} />
+
+			<Table />
 		</>
 	)
 
