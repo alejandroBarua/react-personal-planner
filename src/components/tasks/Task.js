@@ -8,7 +8,7 @@ const Task = ({color, name, setName, setColor, setTasks, selectedTask, setSelect
     const taskName = e.target.dataset.name;
     setTasks(tasks => tasks.filter(el => el.name !== taskName));
     setEditTask("");
-    setSelectedTask("");
+    if(taskName === selectedTask) setSelectedTask("");
     return taskName;
   }
 

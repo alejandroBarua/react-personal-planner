@@ -18,12 +18,33 @@ const Blocks = ({setHoverBlock, selectedTask, tasks, editTask, color, selectedBl
 
 	const selecteBlock = e => {
 
-		if(selectedTask === "") return;
-
 		const nameTask = selectedTask.name;
 		const position = e.target.dataset.position;
 
-		setSelectedBlocks(data => [...data, {position, task: nameTask}]);
+		if(selectedTask === ""){
+			setSelectedBlocks(selectedBlocks.filter(el => el.position !== position));
+			return;
+		}
+
+		if(selectedBlocks.filter(el => el.position === position)[0]){
+			if(selectedBlocks.filter(el => el.position === position && el.task === nameTask)[0]){
+				
+				setSelectedBlocks(selectedBlocks.filter(el => el.position !== position));
+			}
+			else{
+				
+				setSelectedBlocks(data => data.map(el => {
+          if(el.position === position) return {position: el.position, task: nameTask};
+          return el;
+        }));
+				
+			}
+		}
+		else{
+
+			setSelectedBlocks(data => [...data, {position, task: nameTask}]);
+		}
+
 	}
 
 	const findColorBlock = (day, hour) => {
