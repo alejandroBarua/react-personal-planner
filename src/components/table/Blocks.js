@@ -50,7 +50,6 @@ const Blocks = ({setHoverBlock, selectedTask, tasks, editTask, color, selectedBl
 	const findColorBlock = (day, hour) => {
 		
 		if(!selectedBlocks.length) return;
-		if(!tasks.length) return;
 
 		if(!selectedBlocks.filter(el => el.position === `${day}${hour}`)[0]) return;
 		const nameTask = selectedBlocks.filter(el => el.position === `${day}${hour}`)[0].task;
