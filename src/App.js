@@ -1,5 +1,5 @@
 import  React, { useState } from 'react';
-import inizializeTasksList from "./helpers/inizializeTasksList";
+import data from "./helpers/data";
 
 import Header from "./components/header/Header";
 import Input from "./components/input/Input";
@@ -9,15 +9,12 @@ import Table from "./components/table/Table";
 
 const App = () => {
 
-	const tasksList = inizializeTasksList();
-
 	const [color, setColor] = useState("#000000");
   const [name, setName] = useState("");
-	const [tasks, setTasks] = useState(tasksList);
+	const [tasks, setTasks] = useState(data);
 	const [selectedTask, setSelectedTask] = useState("");
-
-  console.log(tasks);
-
+	const [editTask, setEditTask] = useState("");
+	const [selectedBlocks, setSelectedBlocks] = useState([]);
 
 	return (
 		<>
@@ -26,15 +23,22 @@ const App = () => {
 			<Input color={color} setColor={setColor} 
 						name={name}  setName={setName} 
 						setTasks={setTasks}
-						setSelectedTask={setSelectedTask} />
+						setSelectedTask={setSelectedTask}
+						editTask={editTask}
+						setEditTask={setEditTask}
+						setSelectedBlocks={setSelectedBlocks} />
 
 			<TasksGrid color={color} setColor={setColor} 
 								name={name} setName={setName} 
 								tasks={tasks} setTasks={setTasks}
-								selectedTask={selectedTask} setSelectedTask={setSelectedTask} />
+								selectedTask={selectedTask} setSelectedTask={setSelectedTask}
+								setEditTask={setEditTask} />
 
 			<Table selectedTask={selectedTask} 
-						tasks={tasks} />
+						tasks={tasks}
+						editTask={editTask}
+						color={color}
+						selectedBlocks={selectedBlocks} setSelectedBlocks={setSelectedBlocks} />
 		</>
 	)
 

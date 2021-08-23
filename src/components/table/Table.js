@@ -5,7 +5,7 @@ import Hours from './Hours';
 import Days from './Days';
 import Blocks from "./Blocks";
 
-const Table = ({selectedTask, tasks}) => {
+const Table = ({selectedTask, tasks, editTask, color, selectedBlocks, setSelectedBlocks}) => {
 
 	const [hoverBlock, setHoverBlock] = useState("");
 
@@ -15,7 +15,10 @@ const Table = ({selectedTask, tasks}) => {
 			<Days hoverBlock={hoverBlock}  />
 			<Blocks setHoverBlock={setHoverBlock} 
 						selectedTask={selectedTask} 
-						tasks={tasks} />
+						tasks={tasks}
+						editTask={editTask}
+						color={color}
+						selectedBlocks={selectedBlocks} setSelectedBlocks={setSelectedBlocks} />
 		</div>
 	)
 }

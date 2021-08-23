@@ -1,12 +1,13 @@
 import React from 'react'
 import imgEdit from './assets/edit.png';
 
-const Task = ({color, name, setName, setColor, setTasks, selectedTask, setSelectedTask}) => {
+const Task = ({color, name, setName, setColor, setTasks, selectedTask, setSelectedTask, setEditTask}) => {
 
   const removeTask = e => {
 
     const taskName = e.target.dataset.name;
     setTasks(tasks => tasks.filter(el => el.name !== taskName));
+    setEditTask("");
     setSelectedTask("");
     return taskName;
   }
@@ -15,6 +16,7 @@ const Task = ({color, name, setName, setColor, setTasks, selectedTask, setSelect
 
     const taskName = removeTask(e);
     const taskColor = e.target.dataset.color;
+    setEditTask(taskName);
     setName(taskName);
     setColor(taskColor);
   }

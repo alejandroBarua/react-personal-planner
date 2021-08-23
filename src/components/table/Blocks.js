@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import initializeArrayTo from './helpers/inizializeArray'
 
-const Blocks = ({setHoverBlock, selectedTask, tasks}) => {
+const Blocks = ({setHoverBlock, selectedTask, tasks, editTask, color, selectedBlocks, setSelectedBlocks}) => {
 
 	const hoursArray = initializeArrayTo(24);
 	const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
@@ -15,8 +15,6 @@ const Blocks = ({setHoverBlock, selectedTask, tasks}) => {
 	}
 
 	const handlerOut = () => setHoverBlock("");
-
-	const [selectedBlocks, setSelectedBlocks] = useState([]);
 
 	const selecteBlock = e => {
 
@@ -35,13 +33,17 @@ const Blocks = ({setHoverBlock, selectedTask, tasks}) => {
 
 		if(!selectedBlocks.filter(el => el.position === `${day}${hour}`)[0]) return;
 		const nameTask = selectedBlocks.filter(el => el.position === `${day}${hour}`)[0].task;
-		
-		if(!tasks.filter(task => task.name === nameTask)[0]) return;
-		const colorBlock = tasks.filter(task => task.name === nameTask)[0].color;
 
+		if(editTask === nameTask) return color;
+		
+		if(!tasks.filter(task => task.name === nameTask)[0]){
+			setSelectedBlocks(selectedBlocks.filter(el => el.task !== nameTask));
+			return;
+		}
+		const colorBlock = tasks.filter(task => task.name === nameTask)[0].color;
+		
 		return colorBlock;
 	}
-
 
 	return (
 		<div className="blocks-container">

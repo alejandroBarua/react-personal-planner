@@ -1,6 +1,5 @@
-import { v4 } from "uuid";
 
-const tasksList = [ 
+const data = [ 
   {
     name: "sleep",
     color: "#1292d1"
@@ -19,6 +18,4 @@ const tasksList = [
   }
 ];
 
-const inizializeTasksList = () => tasksList.map(task => {return {id: v4(), ...task}});
-
-export default inizializeTasksList;
+export default data;

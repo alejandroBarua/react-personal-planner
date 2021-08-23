@@ -1,9 +1,8 @@
-import { v4 } from "uuid";
 import React from 'react';
 import Colors from './Colors';
 import './Input.css';
 
-const Input = ({color, setColor, name, setName, setTasks, setSelectedTask}) => {
+const Input = ({color, setColor, name, setName, setTasks, setSelectedTask, editTask, setEditTask, setSelectedBlocks}) => {
 
 	const handleInputColor = e => setColor(e.target.value);
 	const handleInputName = e => setName(e.target.value);
@@ -16,7 +15,14 @@ const Input = ({color, setColor, name, setName, setTasks, setSelectedTask}) => {
       if(Object.values(tasks).filter(task => task.name === name).length !== 0) return tasks;
 
       setName('');
-      return  [{id: v4(), name, color}, ...tasks];
+      if(editTask !== ""){
+        setSelectedBlocks(data => data.map(el => {
+          if(el.task === editTask) return {position: el.position, task: name};
+          return el;
+        }));
+        setEditTask('');
+      }
+      return  [{name, color}, ...tasks];
     });
     setSelectedTask({name, color});
   };
