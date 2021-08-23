@@ -31,12 +31,13 @@ button,
   cursor: pointer;
 }
 
-.add-btn {
+.btn {
   background: var(--main-color);
   padding: 6px 15px;
+  border-radius: 5px;
 }
 
-.add-btn:hover {
+.btn:hover {
   background: var(--active-color);
 }
 

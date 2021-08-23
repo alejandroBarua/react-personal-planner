@@ -2,7 +2,7 @@ import React from 'react';
 import Colors from './Colors';
 import './Input.css';
 
-const Input = ({color, setColor, name, setName, setTasks, setSelectedTask, editTask, setEditTask, setSelectedBlocks}) => {
+const Input = ({color, setColor, name, setName, setTasks, selectedTask, setSelectedTask, editTask, setEditTask, setSelectedBlocks}) => {
 
 	const handleInputColor = e => setColor(e.target.value);
 	const handleInputName = e => setName(e.target.value);
@@ -16,6 +16,7 @@ const Input = ({color, setColor, name, setName, setTasks, setSelectedTask, editT
 
       setName('');
       if(editTask !== ""){
+        if(editTask === selectedTask.name) setSelectedTask({name, color});
         setSelectedBlocks(data => data.map(el => {
           if(el.task === editTask) return {position: el.position, task: name};
           return el;
@@ -24,7 +25,6 @@ const Input = ({color, setColor, name, setName, setTasks, setSelectedTask, editT
       }
       return  [{name, color}, ...tasks];
     });
-    setSelectedTask({name, color});
   };
 
 
@@ -33,7 +33,7 @@ const Input = ({color, setColor, name, setName, setTasks, setSelectedTask, editT
       <div className="container">
         <input className="color-input" type="color" value={color} onChange={handleInputColor} />
         <input className="input-text" type="text" placeholder="new task" value={name} onChange={handleInputName} />
-        <button className="add-btn" onClick={handleAddTask} >Add</button>
+        <button className="btn" onClick={handleAddTask} >Add</button>
         <Colors setColor={setColor} />
       </div>
     </div>

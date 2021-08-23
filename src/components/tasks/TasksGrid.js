@@ -4,7 +4,7 @@ import Task from "./Task";
 import './TasksGrid.css';
 
 
-const TasksGrid = ({color, setColor, name, setName, tasks, setTasks, selectedTask, setSelectedTask, setEditTask, setSelectedBlocks}) => {
+const TasksGrid = ({color, setColor, name, setName, tasks, setTasks, selectedTask, setSelectedTask, setEditTask}) => {
 
   return (
     <div className="container tasks-container">

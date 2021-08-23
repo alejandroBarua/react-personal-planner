@@ -1,0 +1,17 @@
+.options-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.options-container > * {
+  margin-left: 10px;
+}
+
+.btn-download {
+  background-color: rgb(75, 133, 18);
+}
+
+.btn-download:hover {
+  background-color: rgb(41, 78, 4);
+}
