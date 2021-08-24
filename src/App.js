@@ -31,19 +31,23 @@ const App = () => {
 						setSelectedBlocks={setSelectedBlocks} 
 			/>
 
-			<TasksGrid color={color} setColor={setColor} 
-								name={name} setName={setName} 
-								tasks={tasks} setTasks={setTasks}
-								selectedTask={selectedTask} setSelectedTask={setSelectedTask}
-								setEditTask={setEditTask} 
-			/>
+			<div id="download-container">
 
-			<Table selectedTask={selectedTask} 
-						tasks={tasks}
-						editTask={editTask}
-						color={color}
-						selectedBlocks={selectedBlocks} setSelectedBlocks={setSelectedBlocks} 
-			/>
+				<TasksGrid color={color} setColor={setColor} 
+									name={name} setName={setName} 
+									tasks={tasks} setTasks={setTasks}
+									selectedTask={selectedTask} setSelectedTask={setSelectedTask}
+									setEditTask={setEditTask} 
+				/>
+
+				<Table selectedTask={selectedTask} 
+							tasks={tasks}
+							editTask={editTask}
+							color={color}
+							selectedBlocks={selectedBlocks} setSelectedBlocks={setSelectedBlocks} 
+				/>
+			</div>
+
 
 			<Options setTasks={setTasks}
 							setEditTask={setEditTask}

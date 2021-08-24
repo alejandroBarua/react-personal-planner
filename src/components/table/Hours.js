@@ -13,7 +13,7 @@ const Hours = ({hoverBlock}) => {
 				hoursArray.map(hour => {
 					
 					const styleHour = hour === hoverBlock.hour ? {color: "var(--active-color)"} : {};
-					return <div key={hour}><p style={styleHour}>{hour}</p></div>
+					return <div key={hour}><p className="hour" style={styleHour}>{hour}</p></div>
 				}) 
 			}
 		</div>

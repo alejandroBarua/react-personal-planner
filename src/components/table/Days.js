@@ -10,7 +10,7 @@ const Days = ({hoverBlock}) => {
 				{
 					days.map(day => { 
 						const styleDay = day === hoverBlock.day ? {color: "var(--active-color)"} : {};
-						return <li key={day} style={styleDay} >{day}</li>
+						return <li className="day" key={day} style={styleDay} >{day}</li>
 					})
 				}
 			</ul>
